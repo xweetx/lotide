@@ -1,11 +1,10 @@
 //head function implementation
 
-const assertEqual = function(a,b) {
-  if (a === b) {
-    console.log('✅✅✅Assertion Passed: ' + [a] + ' === ' + [b]);
-  } else {
-    console.log('🛑🛑🛑Assertion Failed:' + [a] + ' !==' + [b]);
-  }
+const assertEqual = function(actual,expected) {
+  if (actual === expected)
+    console.log('✅✅✅Assertion Passed: ' + [actual] + ' === ' + [expected]);
+  else if (actual !== expected)
+    console.log('🛑🛑🛑Assertion Failed:' + [actual] + ' !==' + [expected]);
 };
 
 const head = function(array) {
