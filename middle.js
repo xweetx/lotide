@@ -1,53 +1,35 @@
-// TEST/ASSERTION FUNCTIONS
-
-const eqArrays = function(actual, expected) {
-  // ... implementation for comparing arrays
-  if (actual.length !== expected.length) {
+function eqArrays(arrayA, arrayB) {
+  if (arrayA.length !== arrayB.length) {
     return false;
   }
-
-  for (let i = 0; i < actual.length; i++) {
-    if (actual[i] !== expected[i]) {
+  for (let i = 0; i < arrayA.length; i++) {
+    if (arrayA[i] !== arrayB[i]) {
       return false;
     }
   }
-
   return true;
-};
+}
 
-const assertArraysEqual = function(actual, expected) {
-  // ... implementation for asserting array equality
-  if (eqArrays(actual, expected)) {
-    console.log(`✅✅✅ Assertion Passed: [${actual}] === [${expected}]`);
+function assertArraysEqual(arrayA, arrayB) {
+  if (eqArrays(arrayA, arrayB)) {
+    console.log(`assertion passed: ${arrayA} equals ${arrayB}`);
   } else {
-    console.log(`🛑🛑🛑 Assertion Failed: [${actual}] !== [${expected}]`);
+    console.log(`assertion failed: ${arrayA} does not equal ${arrayB}`);
   }
-};
+}
 
-// ACTUAL FUNCTION
-const middle = function(array) {
-  const length = array.length;
-  const middleIndex = Math.floor(length / 2);
-
-  if (length <= 2) {
+function middle(array) {
+  if (array.length <= 2) {
     return [];
-  } else if (length % 2 === 1) {
-    return [array[middleIndex]];
+  } else if (array.length % 2 === 1) {
+    return [array[Math.floor(array.length / 2)]];
   } else {
-    return [array[middleIndex - 1], array[middleIndex]];
+    const point = array.length / 2 - 1;
+    return array.slice(point, point + 2);
   }
-};
-console.log(middle([1,20,34,4]))
-// TEST CODE
-// console.log("Middle of [1]:");
-// assertArraysEqual(middle([1]), []);
-// console.log("Middle of [1, 2]:");
-// assertArraysEqual(middle([1, 2]), []);
-// console.log("Middle of [1, 2, 3]:");
-// assertArraysEqual(middle([1, 2, 3]), [2]);
-// console.log("Middle of [1, 2, 3, 4, 5]:");
-// assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]);
-// console.log("Middle of [1, 2, 3, 4]:");
-// assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);
-// console.log("Middle of [1, 2, 3, 4, 5, 6]:");
-// assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);
+}
+
+assertArraysEqual([4, 9], middle([1, 2, 4, 9, 6, 8]));
+assertArraysEqual([], middle([1]));
+assertArraysEqual([], middle([9, 10]));
+assertArraysEqual([3], middle([1, 3, 5]));
