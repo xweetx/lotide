@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "lightcoin-crypto",
+			"path": "../lightcoin-crypto"
+		}
+	],
+	"settings": {}
+}
