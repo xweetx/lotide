@@ -1,35 +1,16 @@
-function eqArrays(arrayA, arrayB) {
-  if (arrayA.length !== arrayB.length) {
-    return false;
-  }
-  for (let i = 0; i < arrayA.length; i++) {
-    if (arrayA[i] !== arrayB[i]) {
-      return false;
-    }
-  }
-  return true;
-}
+const assertArraysEqual = require('./assertArraysEqual');
+const eqArrays = require('./eqArrays');
 
-function assertArraysEqual(arrayA, arrayB) {
-  if (eqArrays(arrayA, arrayB)) {
-    console.log(`assertion passed: ${arrayA} equals ${arrayB}`);
+const middle = function(array) {
+  let arrayResult = [];
+  if (array.length <= 2 && array.length > 0) {
+    return arrayResult;
+  } else if (array.length % 2 === 0) {
+    return arrayResult = [array[(array.length / 2) - 1], array[array.length / 2]];
   } else {
-    console.log(`assertion failed: ${arrayA} does not equal ${arrayB}`);
+    return arrayResult = array[(array.length - 1) / 2];
   }
-}
+};
+console.log(middle([1, 2, 3, 4, 5, 6]));
 
-function middle(array) {
-  if (array.length <= 2) {
-    return [];
-  } else if (array.length % 2 === 1) {
-    return [array[Math.floor(array.length / 2)]];
-  } else {
-    const point = array.length / 2 - 1;
-    return array.slice(point, point + 2);
-  }
-}
-
-assertArraysEqual([4, 9], middle([1, 2, 4, 9, 6, 8]));
-assertArraysEqual([], middle([1]));
-assertArraysEqual([], middle([9, 10]));
-assertArraysEqual([3], middle([1, 3, 5]));
+module.exports = middle;
