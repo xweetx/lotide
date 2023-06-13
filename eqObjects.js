@@ -1,3 +1,4 @@
+// copy assertEqual to this new file.
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
@@ -5,14 +6,21 @@ const assertEqual = function(actual, expected) {
     console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
   }
 };
-
-const eqArrays = function(arr1, arr2) {  
-  if (arr1.length !== arr2.length) return false;  
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) return false;
+// copy eqArray to this file
+const eqArrays = function(actual, expected) {
+  if (actual.length !== expected.length) {
+    return false;
   }
+
+  for (let i = 0; i < actual.length; i++) {
+    if (actual[i] !== expected[i]) {
+      return false;
+    }
+  }
+
   return true;
 };
+
 
 const eqObjects = function(obj1, obj2) {  
   if (Object.keys(obj1).length !== Object.keys(obj2).length) {
