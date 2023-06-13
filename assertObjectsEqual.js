@@ -1,12 +1,5 @@
-const eqArrays = (actual, expected) => {
-  if (actual.length === expected.length) {
-    for (let i = 0; i < actual.length; i++) {
-      if (actual[i] !== expected[i]) return false;
-    }
-    return true;
-  }
-  return false;
-};
+
+const eqArrays = require(`./eqArrays`);
 
 const eqObjects = function(object1, object2) {
   const ob1Length = Object.keys(object1).length,
