@@ -1,19 +1,19 @@
-const assertEqual = require(`./assertEqual`);
-
 //counts and tells the number of each letter in a string
-const countLetters = function(sentence) {
-  const results = {};
-  for (const letter of sentence) {
-    if (letter !== " ") {
-      if (results[letter] === undefined) {
-        results[letter] = 1;
-      } else {
-        results[letter] += 1;
+const countLetters = function(string) {
+  //return a count on each letters
+  const object = {};
+  for (const letter of string) {
+
+    if (letter !== ' ') { // Filters spaces in the string
+      if (object[letter]) { // if any letter has been counted, 1 is added to the count.
+        object[letter] = object[letter] += 1;
+      } else { // If the letter does not exist in the result object, creates it
+        object[letter] = 1;
       }
     }
   }
-  console.log(results);
-  return results;
+  return object;
 };
-countLetters("ANNA");
-assertEqual(1, 1);
+
+
+module.exports = countLetters;

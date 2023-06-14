@@ -1,25 +1,14 @@
-const assertEqual = require(`./assertEqual`);
-
 //Implements function with an object and a value
 
-const bestTVShowsByGenre = {
-  sci_fi:  "THe Expanse",
-  comedy:  "Brooklyn Nine-Nine",
-  drama:  "The Wire"
-};
-
 const findKeyByValue = function(object, value) {
-  
-// for (const key of Object.keys(object))
+//checks object (key in object), returns first key with given value, if no value says undefined
 
   for (const key in object) {
     if (object[key] === value) {
-  return key;
+      return key;
     }
-  };
+  }
 };
 
-assertEqual(findKeyByValue(bestTVShowsByGenre, "The Wire"), "drama");
-assertEqual(findKeyByValue(bestTVShowsByGenre, "That `70s Show"), undefined);
 
-module.exports = findKeyByValue
+module.exports = findKeyByValue;

@@ -4,29 +4,17 @@
 // Our function countOnly needs to return a proper report on all the strings found in the input array, and their respective counts. Therefore it will need to return an object that can represent the stats.
 
 const countOnly = function(allItems, itemsToCount) {
-  let result = {};
-  for (let i of allItems) {
-    if (itemsToCount[i]) { 
-      if (result[i]) {  
-        result[i]++; 
+  let results = {};
+  for (let items of allItems) { //loop through array allItems
+    if (itemsToCount[items]) { //check truthy
+      if (results[items]) {
+        results[items] += 1;
       } else {
-        result[i] = 1;
+        results[items] = 1;
       }
     }
   }
-  return result;
+  return results;
 };
-const firstNames = [
-  "Karl",
-  "Salima",
-  "Agouhanna",
-  "Fang",
-  "Kavith",
-  "Jason",
-  "Salima",
-  "Fang",
-  "Joe"
-];
 
-const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true, "Agouhanna": false });
-console.log(result1);
+module.exports = countOnly;

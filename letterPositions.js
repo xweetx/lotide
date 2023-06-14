@@ -1,23 +1,3 @@
-// This function compares 2 arrays, see if they are perfect matches, per element for element.
-const eqArrays = function(array1, array2) {
-  if (array1.length !== array2.length) return false;
-
-  for (let i = 0; i < array1.length; i++) {
-    if (array1[i] !== array2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
-
-// This function asserts (i.e., console.logs) if both arrays are equal in value and type.
-const assertArraysEqual = function(array1, array2) {
-  eqArrays(array1, array2) === true ?
-    console.log(`✅✅✅ Assertion Passed: ${array1} === ${array2}`) :
-    console.log(`❌❌❌ Assertion Failed: ${array1} !== ${array2}`);
-};
-
-
 /*
 Create a function that takes a sentence string.
 For each letter in the sentence, return all the indices of that letter's occurrences in the sentence.
@@ -42,10 +22,6 @@ const letterPositions = function(sentence) {
   return results;
 };
 
-const assertTest1 = letterPositions('hello');
 
 
-assertArraysEqual(assertTest1['h'], [0]); // => true
-assertArraysEqual(assertTest1['e'], [1]); // => true
-assertArraysEqual(assertTest1['l'], [2, 3]); // => true
-assertArraysEqual(assertTest1['o'], [4]); // => false
+module.exports = letterPositions;
